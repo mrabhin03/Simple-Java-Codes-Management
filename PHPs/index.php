@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="https://github.com/System05Pentium/Java-Swing-Programs">Test GooGle</a><br>
+    <a href="https://www.google.com/">Test GooGle</a><br>
 <?php
 $directory = '../Anu'; 
 
