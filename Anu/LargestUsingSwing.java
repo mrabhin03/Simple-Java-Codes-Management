@@ -1,12 +1,13 @@
-import java.awt.event.*;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
-public class AddTwoNumbers extends JFrame implements ActionListener {
+public class LargestUsingSwing extends JFrame implements ActionListener {
 	JTextField t1, t2, t3;
 	JLabel l1, l2, l3;
-	JButton b;
+	JButton b1;
 
-	AddTwoNumbers() {
+	LargestUsingSwing() {
 		l1 = new JLabel("First Number");
 		l1.setBounds(10, 10, 100, 20);
 		t1 = new JTextField(20);
@@ -29,25 +30,32 @@ public class AddTwoNumbers extends JFrame implements ActionListener {
 		add(t2);
 		add(t3);
 
-		b = new JButton("Add");
-		b.setBounds(10, 210, 70, 40);
-		add(b);
+		b1 = new JButton("Find");
+		b1.setBounds(10, 210, 70, 40);
+		add(b1);
 
 		setSize(400, 400);
 		setLayout(null);
 		setVisible(true);
-		b.addActionListener(this);
+		b1.addActionListener(this);
+
 	}
 
 	public void actionPerformed(ActionEvent e) {
 
 		int a = Integer.parseInt(t1.getText());
 		int b = Integer.parseInt(t2.getText());
-		t3.setText(String.valueOf(a + b));
+		if (e.getSource() == b1) {
+			if (a > b) {
+				t3.setText(String.valueOf(t1.getText() + "is greter"));
+			} else {
+				t3.setText(String.valueOf(t2.getText() + "is greater"));
+			}
 
+		}
 	}
 
 	public static void main(String args[]) {
-		new AddTwoNumbers();
+		new LargestUsingSwing();
 	}
 }

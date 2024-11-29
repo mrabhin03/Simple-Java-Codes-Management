@@ -11,7 +11,7 @@
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styles.css?v=<?php echo time()?>" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
@@ -42,7 +42,9 @@
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">Java Code Management</h1>
                     <p class="lead fw-normal text-white-50 mb-0">Repository  for Java Code</p>
+                    <input type="text" class="SearchData" placeholder='Search Java File'>
                 </div>
+                
             </div>
         </header>
         <!-- Section-->
@@ -55,14 +57,13 @@
         ?>
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div class="code-main">
                     <?php 
                     foreach ($files as $file) {
                         if ($file !== '.' && $file !== '..') {
                             if (pathinfo($file, PATHINFO_EXTENSION) === 'java') {
                                 
                     ?>
-                    <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
                             <img class="card-img-top" style='height:100px; width:100px; margin:5px auto;' src="assets/java.png" alt="..." />
@@ -80,7 +81,6 @@
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
                             </div>
                         </div>
-                    </div>
                     <?php
                             }
                         }

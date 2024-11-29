@@ -643,7 +643,7 @@ progress {
 
 @media (min-width: 576px) {
   .container-sm, .container {
-    max-width: 540px;
+    /* max-width: 540px; */
   }
 }
 @media (min-width: 768px) {
@@ -658,7 +658,7 @@ progress {
 }
 @media (min-width: 1200px) {
   .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1140px;
+    /* max-width: 1140px; */
   }
 }
 @media (min-width: 1400px) {
@@ -2493,13 +2493,26 @@ textarea.form-control-lg {
 .form-floating > .form-control-plaintext ~ label {
   border-width: 1px 0;
 }
+.SearchData{
+  width: 50%;
+  height: 40px;
+  border-radius: 17px;
+  margin: 10px auto;
+  outline: none !important;
+  border: none !important;
+  text-align: center;
+  font-size: 20px;
+}
 
 .input-group {
   position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
-  width: 100%;
+  width: 50%;
+
+  margin: 10px auto;
+  outline: none !important;
 }
 .input-group > .form-control,
 .input-group > .form-select,
@@ -4147,6 +4160,27 @@ textarea.form-control-lg {
   --bs-navbar-toggler-border-color: rgba(255, 255, 255, 0.1);
   --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
+.code-main{
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 1400px) {
+  .code-main{
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+@media (max-width: 992px) {
+  .code-main{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+@media (max-width: 600px) {
+  .code-main{
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .card {
   --bs-card-spacer-y: 1rem;
