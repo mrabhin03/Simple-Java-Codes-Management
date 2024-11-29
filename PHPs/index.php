@@ -42,7 +42,7 @@
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">Java Code Management</h1>
                     <p class="lead fw-normal text-white-50 mb-0">Repository  for Java Code</p>
-                    <input type="text" class="SearchData" placeholder='Search Java File'>
+                    <input type="text" class="SearchData" placeholder='Search Java File '>
                 </div>
                 
             </div>
@@ -71,7 +71,7 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder"><?php echo $file;?></h5>
+                                    <h5 class="fw-bolder"><?php $file=str_replace('.java','',$file); echo $file;?></h5>
                                     <!-- Product price-->
                                     <!-- $40.00 - $80.00 -->
                                 </div>
