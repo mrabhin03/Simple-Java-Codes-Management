@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="https://www.google.com/">Test GooGle</a><br>
+    <a href="PagesDetails.php">Test GooGle</a><br>
 <?php
 $directory = '../Anu'; 
 
