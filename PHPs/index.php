@@ -84,7 +84,7 @@
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark" style='margin-top:20px'>
-            <div class="container"><p class="m-0 text-center text-white">This Website is a Prototype 'Java Code Reviewer' By Abhin</p></div>
+            <div class="container"><p class="m-0 text-center text-white">This Website is a Prototype <br> <b>'Java Code Reviewer'</b> By Abhin</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
