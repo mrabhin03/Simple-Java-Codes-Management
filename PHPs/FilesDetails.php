@@ -99,12 +99,12 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
         <div class="card-body p-4">
             <div class="text-center">
             <h5 class="fw-bolder"  style='font-size:20px;'><?php $file1=str_replace('.java','',$file['FileName']); echo $file1;?></h5>
-                <span style='font-size:15px;'>Type: <?php echo $file['Type'] ?><br>
+                <span style='font-size:15px; color:#cfcfcf;'>Type: <?php echo $file['Type'] ?><br>
                 Creator: <?php echo $file['Creator'] ?></span>
             </div>
         </div>
         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-            <div class="text-center"><a class="btn btn-outline-dark mt-auto" style='background-color:white;' href="CodeView.php?FileDetails=../<?php echo $file['Path'] ?>">View options</a></div>
+            <div class="text-center"><a class="btn btn-outline-dark mt-auto" style='background-color:white;' id='PressTest' href="CodeView.php?FileDetails=../<?php echo $file['Path'] ?>">View options</a></div>
         </div>
     </div>
     <?php

@@ -16,8 +16,8 @@ function GetData(Dir,Search) {
   };
   xhr.send();
 }
+document.getElementById('SearchDataInput').value='';
 GetData(MainOption,'')
-
 document.getElementById('SearchDataInput').addEventListener('input', function() {
     GetData(MainOption,this.value)
 });
@@ -36,6 +36,6 @@ function selectOption(object,Path){
     MainOption=Path;
     document.getElementById('SearchDataInput').value='';
     GetData(MainOption,'')
-    
+    document.getElementById('JavaCodes').scrollIntoView({ behavior: 'smooth' });
 }
 
