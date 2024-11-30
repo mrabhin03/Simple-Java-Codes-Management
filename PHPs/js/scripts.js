@@ -39,6 +39,6 @@ function selectOption(object,Path){
 }
 
 function ResetValue(){
-    document.getElementById('SearchDataInput').value='';
+    // document.getElementById('SearchDataInput').value='';
 }
 
