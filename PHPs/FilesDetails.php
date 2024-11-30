@@ -18,7 +18,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
                 } elseif (is_file($itemPath) && pathinfo($itemPath, PATHINFO_EXTENSION) === 'java' && stripos(basename($itemPath), $Search) === 0)
                 {
                     $relativePath = str_replace('../','',$itemPath);
-                    $Type=explode('\\',$itemPath);
+                    $Type=explode('/',$itemPath);
                     $javaFiles[] = [
                         'FileName' => $item,
                         'RootDirectory' => $Type[count($Type)-2],
@@ -38,7 +38,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
         $Dir='';
     }else{
         if($_GET['Dir']!=''){
-            $Dir = "\\" . str_replace('/', "\\", $_GET['Dir']);
+            $Dir = "/" . str_replace('/', "/", $_GET['Dir']);
         }else{
             $Dir='';
         }
@@ -54,8 +54,8 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
             if (is_file($itemPath) && pathinfo($itemPath, PATHINFO_EXTENSION) === 'java' && stripos(basename($itemPath), $Search) === 0) {
                 echo $item."<br>";
                 $relativePath = str_replace('../','',$itemPath);
-                $Type=explode('\\',$itemPath);
-                $Cret=explode('\\',$relativePath);
+                $Type=explode('/',$itemPath);
+                $Cret=explode('/',$relativePath);
                 $AllFiles[]=[
                     'FileName'=>$item,
                     'Type'=>$Type[count($Type)-2],
@@ -64,15 +64,15 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
                 ];
             }else{
                 if ($item !== '.' && $item !== '..' && is_dir($itemPath) && $item[0] !== '.' && $item!='PHPs') {
-                    $directory = $folderPath."\\".$item; 
+                    $directory = $folderPath."/".$item; 
                     $javaFiles = getJavaFiles($directory,null,$Search);
                     foreach ($javaFiles as $file) {
-                        $Cret=explode('\\',$file['FullPath']);
+                        $Cret=explode('/',$file['FullPath']);
                         $AllFiles[]=[
                             'FileName'=>$file['FileName'],
                             'Type'=>$file['RootDirectory'],
                             'Path'=>$file['FullPath'],
-                            'Creator'=>$Cret[1]
+                            'Creator'=>""
                         ];
                     }
                 }
