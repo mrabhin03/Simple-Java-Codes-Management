@@ -255,14 +255,8 @@ a {
   color: var(--bs-link-color);
   text-decoration: underline;
 }
-a:hover {
-  color: var(--bs-link-hover-color);
-}
 
-a:not([href]):not([class]), a:not([href]):not([class]):hover {
-  color: inherit;
-  text-decoration: none;
-}
+
 
 pre,
 code,
@@ -3827,11 +3821,7 @@ textarea.form-control-lg {
   padding-bottom: 0.5rem;
   color: var(--bs-navbar-color);
 }
-.navbar-text a,
-.navbar-text a:hover,
-.navbar-text a:focus {
-  color: var(--bs-navbar-active-color);
-}
+
 
 .navbar-collapse {
   flex-basis: 100%;
