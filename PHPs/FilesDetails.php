@@ -92,6 +92,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
         foreach ($AllFiles as $file) {
             if ($file['FileName'] !== '.' && $file['FileName'] !== '..') {
                 if (pathinfo($file['FileName'], PATHINFO_EXTENSION) === 'java') {
+                    $FilePath= base64_encode($file['Path']);
                                         
     ?>
     <div class="card h-100">
@@ -104,7 +105,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
             </div>
         </div>
         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-            <div class="text-center"><a class="btn btn-outline-dark mt-auto" style='background-color:white;' onclick='ResetValue()' target='_blank' href="CodeView.php?FileDetails=<?php echo $file['Path'] ?>">View options</a></div>
+            <div class="text-center"><a class="btn btn-outline-dark mt-auto" style='background-color:white;' onclick='ResetValue()' target='_blank' href="CodeView.php?jhfuiehfwuhfeoi=<?php echo $FilePath ?>">View options</a></div>
         </div>
     </div>
     <?php
