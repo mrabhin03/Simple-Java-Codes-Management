@@ -65,7 +65,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
                 echo "KKK";
                 if ($item !== '.' && $item !== '..' && is_dir($itemPath) && $item[0] !== '.' && $item!='PHPs') {
                     $directory = $folderPath."\\".$item; 
-                    echo "LLLLL";
+                    echo $directory;
                     $javaFiles = getJavaFiles($directory,null,$Search);
                     foreach ($javaFiles as $file) {
                         echo $file['FullPath']."<br>";
