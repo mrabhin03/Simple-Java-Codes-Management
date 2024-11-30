@@ -28,6 +28,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
             }
         }
     }
+    echo $directory."<br>";
 
     return $javaFiles;
 }
