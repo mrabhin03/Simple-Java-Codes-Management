@@ -10,7 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
   <?php
     if(!isset($_GET['VGhpcyBpcyBzZW5zaXRpdmUgZGF0YQ'])){
-      die('NoData');
+      die('No Data Found');
     }
     $decryptedData = base64_decode($_GET['VGhpcyBpcyBzZW5zaXRpdmUgZGF0YQ']);
     $filePath="../".$decryptedData;

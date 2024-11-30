@@ -66,7 +66,6 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
                     $javaFiles = getJavaFiles($directory,null,$Search);
                     foreach ($javaFiles as $file) {
                         $T=str_replace('\\','/',$file['FullPath']);
-                        // echo $file['RootDirectory']."<br>";
                         $Cret=explode('/',$T);
                         $AllFiles[]=[
                             'FileName'=>$file['FileName'],
