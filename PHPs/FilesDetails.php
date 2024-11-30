@@ -43,6 +43,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
     }
     $Search=$_GET['Search'];
     $folderPath = '..'.$Dir; 
+    echo $folderPath;
     $AllFiles=[];
     if (is_dir($folderPath)) {
         $items = scandir($folderPath);
