@@ -62,6 +62,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
                     'Creator'=>$Cret[1]
                 ];
             }else{
+                echo "KKK";
                 if ($item !== '.' && $item !== '..' && is_dir($itemPath) && $item[0] !== '.' && $item!='PHPs') {
                     $directory = $folderPath."\\".$item; 
                     $javaFiles = getJavaFiles($directory,null,$Search);
