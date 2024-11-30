@@ -43,13 +43,13 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
     }
     $Search=$_GET['Search'];
     $folderPath = '..'.$Dir; 
-    echo $folderPath;
     $AllFiles=[];
     if (is_dir($folderPath)) {
         $items = scandir($folderPath);
         foreach ($items as $item) {
             $javaFiles=[];
             $itemPath = $folderPath . DIRECTORY_SEPARATOR . $item;
+            echo $item."<br>";
             if (is_file($itemPath) && pathinfo($itemPath, PATHINFO_EXTENSION) === 'java' && stripos(basename($itemPath), $Search) === 0) {
                 $relativePath = str_replace('../','',$itemPath);
                 $Type=explode('\\',$itemPath);
