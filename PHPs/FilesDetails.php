@@ -105,7 +105,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
             </div>
         </div>
         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-            <div class="text-center"><a class="btn btn-outline-dark mt-auto" style='background-color:white;' onclick='ResetValue()' target='_blank' href="CodeView.php?jhfuiehfwuhfeoi=<?php echo $FilePath ?>">View options</a></div>
+            <div class="text-center"><a class="btn btn-outline-dark mt-auto" style='background-color:white;' onclick='ResetValue()' target='_blank' href="CodeView.php?VGhpcyBpcyBzZW5zaXRpdmUgZGF0YQ=<?php echo $FilePath ?>">View options</a></div>
         </div>
     </div>
     <?php

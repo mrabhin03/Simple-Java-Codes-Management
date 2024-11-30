@@ -9,10 +9,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
   <?php
-    if(!isset($_GET['jhfuiehfwuhfeoi'])){
+    if(!isset($_GET['VGhpcyBpcyBzZW5zaXRpdmUgZGF0YQ'])){
       die('NoData');
     }
-    $decryptedData = base64_decode($_GET['jhfuiehfwuhfeoi']);
+    $decryptedData = base64_decode($_GET['VGhpcyBpcyBzZW5zaXRpdmUgZGF0YQ']);
     $filePath="../".$decryptedData;
     $fileContent = file_get_contents($filePath);
     if ($fileContent === false) {
