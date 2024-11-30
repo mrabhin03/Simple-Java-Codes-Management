@@ -8,7 +8,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
 
     if (is_dir($directory)) {
         $items = scandir($directory);
-
+        echo $directory."<br>";
         foreach ($items as $item) {
             // echo $item."<br>";
             if ($item !== '.' && $item !== '..') {
@@ -62,13 +62,10 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
                     'Creator'=>$Cret[1]
                 ];
             }else{
-                echo "KKK";
                 if ($item !== '.' && $item !== '..' && is_dir($itemPath) && $item[0] !== '.' && $item!='PHPs') {
                     $directory = $folderPath."\\".$item; 
-                    echo $directory;
                     $javaFiles = getJavaFiles($directory,null,$Search);
                     foreach ($javaFiles as $file) {
-                        echo $file['FullPath']."<br>";
                         $Cret=explode('\\',$file['FullPath']);
                         $AllFiles[]=[
                             'FileName'=>$file['FileName'],
