@@ -8,7 +8,6 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
 
     if (is_dir($directory)) {
         $items = scandir($directory);
-        echo $directory."<br>";
         foreach ($items as $item) {
             // echo $item."<br>";
             if ($item !== '.' && $item !== '..') {
@@ -18,7 +17,8 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
                 } elseif (is_file($itemPath) && pathinfo($itemPath, PATHINFO_EXTENSION) === 'java' && stripos(basename($itemPath), $Search) === 0)
                 {
                     $relativePath = str_replace('../','',$itemPath);
-                    $Type=explode('/',$itemPath);
+                    $relativePath = str_replace('\\','/',$relativePath);
+                    $Type=explode('/',$relativePath);
                     $javaFiles[] = [
                         'FileName' => $item,
                         'RootDirectory' => $Type[count($Type)-2],
@@ -28,7 +28,6 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
             }
         }
     }
-    echo $directory."<br>";
 
     return $javaFiles;
 }
@@ -52,27 +51,28 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
             $javaFiles=[];
             $itemPath = $folderPath . DIRECTORY_SEPARATOR . $item;
             if (is_file($itemPath) && pathinfo($itemPath, PATHINFO_EXTENSION) === 'java' && stripos(basename($itemPath), $Search) === 0) {
-                echo $item."<br>";
                 $relativePath = str_replace('../','',$itemPath);
-                $Type=explode('/',$itemPath);
-                $Cret=explode('/',$relativePath);
+                $relativePath=str_replace('\\','/',$relativePath);
+                $MainTemp=explode('/',$relativePath);
                 $AllFiles[]=[
                     'FileName'=>$item,
-                    'Type'=>$Type[count($Type)-2],
+                    'Type'=>$MainTemp[count($MainTemp)-2],
                     'Path'=>$relativePath,
-                    'Creator'=>$Cret[1]
+                    'Creator'=>$MainTemp[0]
                 ];
             }else{
                 if ($item !== '.' && $item !== '..' && is_dir($itemPath) && $item[0] !== '.' && $item!='PHPs') {
                     $directory = $folderPath."/".$item; 
                     $javaFiles = getJavaFiles($directory,null,$Search);
                     foreach ($javaFiles as $file) {
-                        $Cret=explode('/',$file['FullPath']);
+                        $T=str_replace('\\','/',$file['FullPath']);
+                        // echo $file['RootDirectory']."<br>";
+                        $Cret=explode('/',$T);
                         $AllFiles[]=[
                             'FileName'=>$file['FileName'],
                             'Type'=>$file['RootDirectory'],
-                            'Path'=>$file['FullPath'],
-                            'Creator'=>""
+                            'Path'=>$T,
+                            'Creator'=>$Cret[0]
                         ];
                     }
                 }
@@ -104,7 +104,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
             </div>
         </div>
         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-            <div class="text-center"><a class="btn btn-outline-dark mt-auto" style='background-color:white;' href="CodeView.php?FileDetails=<?php echo $file['Path'] ?>">View options</a></div>
+            <div class="text-center"><a class="btn btn-outline-dark mt-auto" style='background-color:white;' href="CodeView.php?FileDetails=../<?php echo $file['Path'] ?>">View options</a></div>
         </div>
     </div>
     <?php
