@@ -12,7 +12,7 @@
     if(!isset($_GET['FileDetails'])){
       die('NoData');
     }
-    $filePath=$_GET['FileDetails'];
+    $filePath="../".$_GET['FileDetails'];
     $fileContent = file_get_contents($filePath);
     if ($fileContent === false) {
         die("Error reading the file!");
