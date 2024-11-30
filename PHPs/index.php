@@ -77,7 +77,7 @@
             </div>
         </header>
         <!-- Section-->
-        <section class="" >
+        <section class="" style='flex-grow:1;' >
             <div class="container px-4 px-lg-5 mt-5"  id='JavaCodes'>
                 
             </div>
