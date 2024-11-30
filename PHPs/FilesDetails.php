@@ -10,6 +10,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
         $items = scandir($directory);
 
         foreach ($items as $item) {
+            echo $item."<br>";
             if ($item !== '.' && $item !== '..') {
                 $itemPath = $directory . DIRECTORY_SEPARATOR . $item;
                 if (is_dir($itemPath)) {
@@ -49,7 +50,6 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
         foreach ($items as $item) {
             $javaFiles=[];
             $itemPath = $folderPath . DIRECTORY_SEPARATOR . $item;
-            echo $item."<br>";
             if (is_file($itemPath) && pathinfo($itemPath, PATHINFO_EXTENSION) === 'java' && stripos(basename($itemPath), $Search) === 0) {
                 $relativePath = str_replace('../','',$itemPath);
                 $Type=explode('\\',$itemPath);
