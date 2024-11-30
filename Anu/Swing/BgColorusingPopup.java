@@ -2,12 +2,12 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
 
-class BgColorusingPopup extends JFrame implements ActionListener {
+class BgColorUsingPopup extends JFrame implements ActionListener {
 
 	JComboBox<String> cb1;
 	JLabel l1;
 
-	BgColorusingPopup() {
+	BgColorUsingPopup() {
 		String pop[] = { "Red", "Blue", "Green", "Yellow", "Orange", "Black", "White", "Pink", "Violet", "Purple",
 				"Grey", "Brown", "Violet" };
 		cb1 = new JComboBox<>(pop);
@@ -76,6 +76,6 @@ class BgColorusingPopup extends JFrame implements ActionListener {
 	}
 
 	public static void main(String args[]) {
-		new BgColorusingPopup();
+		new BgColorUsingPopup();
 	}
 }

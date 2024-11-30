@@ -2,12 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class CircleAreaUsingSwing extends JFrame implements ActionListener {
+public class Reverse extends JFrame implements ActionListener {
 	JTextField t1, t3;
 	JLabel l1, l3;
 	JButton b1;
 
-	CircleAreaUsingSwing() {
+	Reverse() {
 		l1 = new JLabel("First Number");
 		l1.setBounds(10, 10, 100, 20);
 		t1 = new JTextField(20);
@@ -35,14 +35,14 @@ public class CircleAreaUsingSwing extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-
-		int r = Integer.parseInt(t1.getText());
-		double Area = 3.14 * (r * r);
-		t3.setText(String.valueOf("Area of circle is " + Area));
-
+		String m = t1.getText(), Result = "";
+		for (int i = m.length() - 1; i >= 0; i--) {
+			Result += m.charAt(i);
+		}
+		t3.setText(Result);
 	}
 
 	public static void main(String args[]) {
-		new CircleAreaUsingSwing();
+		new Reverse();
 	}
 }

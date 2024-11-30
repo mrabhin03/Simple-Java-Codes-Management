@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.event.*;
-public class CalculatorUsingSwing{
+public class Calculator{
     public static void main(String ar[]){
         new CalculationFrame();
     }

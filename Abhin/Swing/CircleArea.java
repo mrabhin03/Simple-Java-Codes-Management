@@ -1,18 +1,18 @@
 import javax.swing.*;
 import java.awt.event.*;
 
-public class RevValueUsingSwing{
+class CircleArea{
     public static void main(String ar[]){
-        new ReverceValue();
+        new circleData();
     }
 }
-
-class ReverceValue extends JFrame implements ActionListener{
+class circleData extends JFrame implements ActionListener{
     JTextArea Q1,A1;
     JButton B1;
-    ReverceValue(){
+    circleData(){
         setLayout(null);
         setSize(400,400);
+
         Q1=new JTextArea();
         A1=new JTextArea();
         B1=new JButton("Submit");
@@ -24,12 +24,16 @@ class ReverceValue extends JFrame implements ActionListener{
         add(B1);
         add(A1);
         setVisible(true);
+        
+
     }
-    public void  actionPerformed(ActionEvent ae){
-        String ar=Q1.getText(), Result="";
-        for(int i=ar.length()-1;i>=0;i--){
-            Result+=ar.charAt(i);
+    public void actionPerformed(ActionEvent ae){
+        try{
+            int r=Integer.parseInt(Q1.getText());
+            double Area=3.14*(r*r);
+            A1.setText("Area: "+Area);
+        }catch(Exception e){
+            A1.setText("Error");
         }
-        A1.setText(Result);
     }
 }

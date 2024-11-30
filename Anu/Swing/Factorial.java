@@ -2,12 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class ReverseUsingSwing extends JFrame implements ActionListener {
+public class Factorial extends JFrame implements ActionListener {
 	JTextField t1, t3;
 	JLabel l1, l3;
 	JButton b1;
 
-	ReverseUsingSwing() {
+	Factorial() {
 		l1 = new JLabel("First Number");
 		l1.setBounds(10, 10, 100, 20);
 		t1 = new JTextField(20);
@@ -35,14 +35,15 @@ public class ReverseUsingSwing extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		String m = t1.getText(), Result = "";
-		for (int i = m.length() - 1; i >= 0; i--) {
-			Result += m.charAt(i);
+		int a = Integer.parseInt(t1.getText());
+		int fact = 1;
+		for (int i = 1; i <= a; i++) {
+			fact *= i;
 		}
-		t3.setText(Result);
+		t3.setText("Factorial of " + a + " is " + fact);
 	}
 
 	public static void main(String args[]) {
-		new ReverseUsingSwing();
+		new Factorial();
 	}
 }
