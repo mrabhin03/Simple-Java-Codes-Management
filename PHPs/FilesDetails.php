@@ -83,7 +83,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
 
     <?php 
         if(count($AllFiles)==0){
-            echo "<div style='grid-column: span 4;font-size:20px;text-align:center;'>No File Found</div>";
+            echo "<div style='grid-column: span 4;font-size:20px;text-align:center;color:white;'>No File Found</div>";
             die();
         }
         foreach ($AllFiles as $file) {
