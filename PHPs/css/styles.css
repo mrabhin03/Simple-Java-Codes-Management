@@ -4167,6 +4167,7 @@ textarea.form-control-lg {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(4, 1fr);
+  color: white !important;
 }
 @media (max-width: 1400px) {
   .code-main{
