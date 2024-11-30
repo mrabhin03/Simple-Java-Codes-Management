@@ -21,17 +21,46 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Details</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">All Programes</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">Abhin's Programes</a></li>
-                                <li><a class="dropdown-item" href="#!">Anu's Programes</a></li>
-                            </ul>
-                        </li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" onclick='selectOption(this,"")'>All</a></li>
+                        <?php
+                            $folderPath = '../';
+                            if (is_dir($folderPath)) {
+                                $items = scandir($folderPath);
+                                foreach ($items as $item) {
+                                    $itemPath = $folderPath . DIRECTORY_SEPARATOR . $item;
+                                    if ($item !== '.' && $item !== '..' && is_dir($itemPath) && $item[0] !== '.' && $item!='PHPs') {
+                                        ?>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $item;?>'s Programs</a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li><a class="dropdown-item" onclick="selectOption(this.parentNode.parentNode.parentNode,'<?php echo $item;?>')">All</a></li>
+                                            <?php
+                                                $SubfolderPath = "../$item";
+                                                if (is_dir($SubfolderPath)) {
+                                                    $newitems = scandir($SubfolderPath);
+                                                    foreach ($newitems as $Subitem) {
+                                                        $itemPath = $SubfolderPath . DIRECTORY_SEPARATOR . $Subitem;
+                                                        if ($Subitem !== '.' && $Subitem !== '..' && is_dir($itemPath) && $Subitem[0] !== '.' && $Subitem!='PHPs') {
+                                                            ?>
+                                                            <li><a class="dropdown-item" onclick='selectOption(this.parentNode.parentNode.parentNode,"<?php echo $item;?>/<?php echo $Subitem;?>")'><?php echo $Subitem;?></a></li>
+                                                            <?php
+                                                        }
+                                                    }
+                                                } else {
+                                                    echo "The specified folder does not exist.";
+                                                }
+                                            ?>
+                                            
+                                            <!-- <li><a class="dropdown-item" onclick="selectOption(this.parentNode.parentNode.parentNode)">Files</a></li> -->
+                                        </ul>
+                                    </li>
+                                        <?php
+                                    }
+                                }
+                            } else {
+                                echo "The specified folder does not exist.";
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -42,52 +71,15 @@
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">Java Code Management</h1>
                     <p class="lead fw-normal text-white-50 mb-0">Repository  for Java Code</p>
-                    <input type="text" class="SearchData" placeholder='Search Java File '>
+                    <input type="text" id='SearchDataInput' class="SearchData" placeholder='Search Java File' onkeydown='ReadSerch(this)'>
                 </div>
                 
             </div>
         </header>
         <!-- Section-->
-        <?php
-            $directory = '../Anu'; 
-
-            $files = scandir($directory);
-
-            
-        ?>
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
-                <div class="code-main">
-                    <?php 
-                    foreach ($files as $file) {
-                        if ($file !== '.' && $file !== '..') {
-                            if (pathinfo($file, PATHINFO_EXTENSION) === 'java') {
-                                
-                    ?>
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" style='height:100px; width:100px; margin:5px auto;' src="assets/java.png" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder"><?php $file=str_replace('.java','',$file); echo $file;?></h5>
-                                    <!-- Product price-->
-                                    <!-- $40.00 - $80.00 -->
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
-                            </div>
-                        </div>
-                    <?php
-                            }
-                        }
-                    }
-                    ?>
-                    
-                </div>
+        <section class="" >
+            <div class="container px-4 px-lg-5 mt-5"  id='JavaCodes'>
+                
             </div>
         </section>
         <!-- Footer-->
@@ -97,6 +89,6 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="js/scripts.js?v=<?php echo time()?>"></script>
     </body>
 </html>

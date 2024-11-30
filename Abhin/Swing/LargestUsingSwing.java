@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.event.*;
 
-class largest{
+class LargestUsingSwing{
     public static void main(String ar[]){
         new LargestCheckFrame();
     }

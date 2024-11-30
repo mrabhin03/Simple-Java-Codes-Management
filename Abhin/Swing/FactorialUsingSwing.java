@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.event.*;
 
-class factorial{
+class FactorialUsingSwing{
     public static void main(String ar[]){
         new factorialCalc();
     }
