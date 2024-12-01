@@ -19,9 +19,7 @@ class MultiplicationTables implements ActionListener{
         frame.add(scrollBox);
         frame.add(t1);
         frame.add(button);
-        
         frame.setVisible(true);
-    
     }
     public void actionPerformed(ActionEvent e){
         change();
