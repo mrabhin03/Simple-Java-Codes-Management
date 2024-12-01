@@ -134,9 +134,8 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
             <?php } ?>
             <h5 class="fw-bolder"  style='font-size:20px;margin-top:10px;'><?php $file1=str_replace('.java','',$file['FileName']); echo $file1;?></h5>
                 <span style='font-size:15px; color:#cfcfcf;'>
-                    Extension: JAVA<br>
                     Type: <?php echo $file['Type'] ?><br>
-                    Creator: <?php echo $file['Creator'] ?><br>
+                    Creator: <b><?php echo $file['Creator'] ?></b><br>
                     <?php  echo date('Y-m-d', $timestamp); ?><br>
             </span>
             </div>
