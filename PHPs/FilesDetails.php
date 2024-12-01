@@ -126,13 +126,13 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
                                         
     ?>
     <div class="card h-100">
-        <img class="card-img-top" style='height:100px; width:100px; margin:5px auto; margin-top:15px;' src="assets/java.png" alt="..." />
+        <!-- <img class="card-img-top" style='height:100px; width:100px; margin:5px auto; margin-top:15px;' src="assets/java.png" alt="..." /> -->
         <div class="card-body p-4">
             <div class="text-center">
                 <?php if($Latest){?>
             <span style='padding:3px 5px;background-color:red; border-radius:4px; font-size:12px;'>New</span>
             <?php } ?>
-            <h5 class="fw-bolder"  style='font-size:20px;margin-top:2px;'><?php $file1=str_replace('.java','',$file['FileName']); echo $file1;?></h5>
+            <h5 class="fw-bolder"  style='font-size:20px;margin-top:10px;'><?php $file1=str_replace('.java','',$file['FileName']); echo $file1;?></h5>
                 <span style='font-size:15px; color:#cfcfcf;'>
                     Type: <?php echo $file['Type'] ?><br>
                     Creator: <?php echo $file['Creator'] ?><br>
