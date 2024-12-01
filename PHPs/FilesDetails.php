@@ -8,6 +8,15 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
 
     if (is_dir($directory)) {
         $items = scandir($directory);
+        $items = array_filter($items, function ($item) use ($directory) {
+            return $item !== '.' && $item !== '..';
+        });
+    
+        usort($items, function ($a, $b) use ($directory) {
+            $aTime = filemtime($directory . DIRECTORY_SEPARATOR . $a);
+            $bTime = filemtime($directory . DIRECTORY_SEPARATOR . $b);
+            return $bTime <=> $aTime;
+        });
         foreach ($items as $item) {
             // echo $item."<br>";
             if ($item !== '.' && $item !== '..') {
@@ -22,7 +31,8 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
                     $javaFiles[] = [
                         'FileName' => $item,
                         'RootDirectory' => $Type[count($Type)-2],
-                        'FullPath' => $relativePath
+                        'FullPath' => $relativePath,
+                        'DateTime'=>date('Y-m-d H:i:s', filemtime($itemPath))
                     ];
                 }
             }
@@ -47,6 +57,15 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
     $AllFiles=[];
     if (is_dir($folderPath)) {
         $items = scandir($folderPath);
+        $items = array_filter($items, function ($item) use ($folderPath) {
+            return $item !== '.' && $item !== '..';
+        });
+    
+        usort($items, function ($a, $b) use ($folderPath) {
+            $aTime = filemtime($folderPath . DIRECTORY_SEPARATOR . $a);
+            $bTime = filemtime($folderPath . DIRECTORY_SEPARATOR . $b);
+            return $bTime <=> $aTime;
+        });
         foreach ($items as $item) {
             $javaFiles=[];
             $itemPath = $folderPath . DIRECTORY_SEPARATOR . $item;
@@ -58,7 +77,8 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
                     'FileName'=>$item,
                     'Type'=>$MainTemp[count($MainTemp)-2],
                     'Path'=>$relativePath,
-                    'Creator'=>$MainTemp[0]
+                    'Creator'=>$MainTemp[0],
+                    'DateTime'=>date('Y-m-d H:i:s', filemtime($itemPath))
                 ];
             }else{
                 if ($item !== '.' && $item !== '..' && is_dir($itemPath) && $item[0] !== '.' && $item!='PHPs') {
@@ -71,7 +91,8 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
                             'FileName'=>$file['FileName'],
                             'Type'=>$file['RootDirectory'],
                             'Path'=>$T,
-                            'Creator'=>$Cret[0]
+                            'Creator'=>$Cret[0],
+                            'DateTime'=>$file['DateTime']
                         ];
                     }
                 }
@@ -92,15 +113,31 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
             if ($file['FileName'] !== '.' && $file['FileName'] !== '..') {
                 if (pathinfo($file['FileName'], PATHINFO_EXTENSION) === 'java') {
                     $FilePath= base64_encode($file['Path']);
+                    $timestamp = strtotime($file['DateTime']);
+                    $today = date('Y-m-d');
+                    $yesterday = date('Y-m-d', strtotime('yesterday'));
+                    $fileDate = date('Y-m-d', $timestamp);
+                    $Latest=false;
+                    if ($fileDate === $today) {
+                        $Latest=true;
+                    } elseif ($fileDate === $yesterday) {
+                        $Latest=true;
+                    }
                                         
     ?>
     <div class="card h-100">
         <img class="card-img-top" style='height:100px; width:100px; margin:5px auto; margin-top:15px;' src="assets/java.png" alt="..." />
         <div class="card-body p-4">
             <div class="text-center">
-            <h5 class="fw-bolder"  style='font-size:20px;'><?php $file1=str_replace('.java','',$file['FileName']); echo $file1;?></h5>
-                <span style='font-size:15px; color:#cfcfcf;'>Type: <?php echo $file['Type'] ?><br>
-                Creator: <?php echo $file['Creator'] ?></span>
+                <?php if($Latest){?>
+            <span style='padding:3px 5px;background-color:red; border-radius:4px; font-size:12px;'>New</span>
+            <?php } ?>
+            <h5 class="fw-bolder"  style='font-size:20px;margin-top:2px;'><?php $file1=str_replace('.java','',$file['FileName']); echo $file1;?></h5>
+                <span style='font-size:15px; color:#cfcfcf;'>
+                    Type: <?php echo $file['Type'] ?><br>
+                    Creator: <?php echo $file['Creator'] ?><br>
+                    <?php  echo date('Y-m-d', $timestamp); ?><br>
+            </span>
             </div>
         </div>
         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
