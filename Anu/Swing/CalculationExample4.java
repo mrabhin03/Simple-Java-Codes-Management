@@ -2,13 +2,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class CalculationUsingRadio1 extends JFrame implements ActionListener {
+public class CalculationExample4 extends JFrame implements ActionListener {
 	JTextField t1, t2, t3;
 	JLabel l1, l2, l3;
 	JRadioButton b1, b2, b3, b4, b5;
 	String selectedOperation;
 
-	CalculationUsingRadio1() {
+	CalculationExample4() {
 		l1 = new JLabel("First Number");
 		l1.setBounds(10, 10, 100, 20);
 		t1 = new JTextField(20);
@@ -107,6 +107,6 @@ public class CalculationUsingRadio1 extends JFrame implements ActionListener {
 	}
 
 	public static void main(String args[]) {
-		new CalculationUsingRadio1();
+		new CalculationExample4();
 	}
 }
