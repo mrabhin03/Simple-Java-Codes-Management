@@ -8,17 +8,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
 
     if (is_dir($directory)) {
         $items = scandir($directory);
-        $items = array_filter($items, function ($item) use ($directory) {
-            return $item !== '.' && $item !== '..';
-        });
-    
-        usort($items, function ($a, $b) use ($directory) {
-            $aTime = filemtime($directory . DIRECTORY_SEPARATOR . $a);
-            $bTime = filemtime($directory . DIRECTORY_SEPARATOR . $b);
-            return $bTime <=> $aTime;
-        });
         foreach ($items as $item) {
-            // echo $item."<br>";
             if ($item !== '.' && $item !== '..') {
                 $itemPath = $directory . DIRECTORY_SEPARATOR . $item;
                 if (is_dir($itemPath)) {
@@ -57,15 +47,6 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
     $AllFiles=[];
     if (is_dir($folderPath)) {
         $items = scandir($folderPath);
-        $items = array_filter($items, function ($item) use ($folderPath) {
-            return $item !== '.' && $item !== '..';
-        });
-    
-        usort($items, function ($a, $b) use ($folderPath) {
-            $aTime = filemtime($folderPath . DIRECTORY_SEPARATOR . $a);
-            $bTime = filemtime($folderPath . DIRECTORY_SEPARATOR . $b);
-            return $bTime <=> $aTime;
-        });
         foreach ($items as $item) {
             $javaFiles=[];
             $itemPath = $folderPath . DIRECTORY_SEPARATOR . $item;
@@ -109,6 +90,9 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
             echo "<div style='grid-column: span 4;font-size:20px;text-align:center;color:white;'>No File Found</div>";
             die();
         }
+        usort($AllFiles, function($a, $b) {
+            return strtotime($b['DateTime']) - strtotime($a['DateTime']);
+        });
         foreach ($AllFiles as $file) {
             if ($file['FileName'] !== '.' && $file['FileName'] !== '..') {
                 if (pathinfo($file['FileName'], PATHINFO_EXTENSION) === 'java') {
@@ -134,7 +118,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
             <?php } ?>
             <h5 class="fw-bolder"  style='font-size:20px;margin-top:10px;'><?php $file1=str_replace('.java','',$file['FileName']); echo $file1;?></h5>
                 <span style='font-size:15px; color:#cfcfcf;'>
-                    Type: <?php echo $file['Type'] ?><br>
+                    Type: <span style='color:white'><?php echo $file['Type'] ?></span><br>
                     Creator: <b><?php echo $file['Creator'] ?></b><br>
                     <?php  echo date('Y-m-d', $timestamp); ?><br>
             </span>
