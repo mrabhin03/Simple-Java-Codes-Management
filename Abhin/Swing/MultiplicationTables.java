@@ -7,15 +7,19 @@ class MultiplicationTables implements ActionListener{
     JFrame frame;
     MultiplicationTables(){
         frame=new JFrame();
-        t1=new JTextArea();
-        t1.setBounds(10,10,200,30);
-        JButton button =new JButton("Submit");
-        button.setBounds(210,10,100,30);
-        button.addActionListener(this);
         frame.setSize(500,500);
         frame.setLayout(null);
+
+        t1=new JTextArea();
         scrollBox=new JScrollPane();
+        JButton button =new JButton("Submit");
+
+        t1.setBounds(10,10,200,30);
+        button.setBounds(210,10,100,30);
         scrollBox.setBounds(10,100,300,300);
+
+        button.addActionListener(this);
+        
         frame.add(scrollBox);
         frame.add(t1);
         frame.add(button);
