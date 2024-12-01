@@ -134,6 +134,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
             <?php } ?>
             <h5 class="fw-bolder"  style='font-size:20px;margin-top:10px;'><?php $file1=str_replace('.java','',$file['FileName']); echo $file1;?></h5>
                 <span style='font-size:15px; color:#cfcfcf;'>
+                    Extension: JAVA<br>
                     Type: <?php echo $file['Type'] ?><br>
                     Creator: <?php echo $file['Creator'] ?><br>
                     <?php  echo date('Y-m-d', $timestamp); ?><br>
@@ -141,7 +142,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
             </div>
         </div>
         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-            <div class="text-center"><a class="btn btn-outline-dark mt-auto" style='background-color:white;' onclick='ResetValue()' target='_blank' href="CodeView.php?VGhpcyBpcyBzZW5zaXRpdmUgZGF0YQ=<?php echo $FilePath ?>">View options</a></div>
+            <div class="text-center"><a class="btn btn-outline-dark mt-auto" style='background-color:white;' onclick='ResetValue()' target='_blank' href="CodeView.php?VGhpcyBpcyBzZW5zaXRpdmUgZGF0YQ=<?php echo $FilePath ?>">View Code</a></div>
         </div>
     </div>
     <?php
