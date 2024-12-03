@@ -1,1 +1,10 @@
-HELLO
+**Java** is a versatile, object-oriented programming language developed by Sun Microsystems in 1995, now owned by Oracle Corporation. It is designed to be platform-independent, meaning programs written in Java can run on any device with a Java Virtual Machine (JVM). 
+
+Key features include:
+- **Object-Oriented**: Emphasizes modular and reusable code.
+- **Platform-Independent**: "Write Once, Run Anywhere" (WORA) principle achieved through the JVM.
+- **Robust and Secure**: Includes features like strong memory management and built-in security mechanisms.
+- **Rich API**: Provides extensive libraries for various tasks, such as networking, data structures, and GUIs.
+- **Multithreading**: Supports concurrent execution of threads for efficient use of CPU.
+
+Java is widely used in web development, mobile app development (notably for Android), enterprise applications, and embedded systems.
