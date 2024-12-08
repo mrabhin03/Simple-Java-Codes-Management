@@ -14,7 +14,7 @@
       die('No Data Found');
     }
     $decryptedData = base64_decode($_GET['VGhpcyBpcyBzZW5zaXRpdmUgZGF0YQ']);
-    $filePath="../".$decryptedData;
+    $filePath=$decryptedData;
     $fileContent = file_get_contents($filePath);
     if ($fileContent === false) {
         die("Error reading the file!");
