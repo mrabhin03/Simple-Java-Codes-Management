@@ -66,7 +66,7 @@
                 <img class="card-img-top" style='height:100px; width:100px; ' src="assets/java.png" alt="..." />
                     <h1 class="display-4 fw-bolder">Java Code Hub</h1>
                     <p class="lead fw-normal text-white-50 mb-0">A Java Code Repository</p>
-                    <input type="text" id='SearchDataInput' class="SearchData" placeholder='Search Java File' onkeydown='ReadSerch(this)'>
+                    <input type="text" id='SearchDataInput' class="SearchData" placeholder='Search Java File'>
                 </div>
                 
             </div>
@@ -75,7 +75,9 @@
         <section class="codeData" style='flex-grow:1;' >
             <div id='Loader-Spin'>
                 <div class='spinner-box'>
-                    <div class='spin'></div>
+                    <!-- <div class='spin1'></div> -->
+                    <div class='spin2'></div>
+                    <div class='spin3'></div>
                 </div>
             </div>
             <div class="container px-4 px-lg-5 mt-5" style='position: relative;'  id='JavaCodes'>

@@ -8068,13 +8068,16 @@ textarea.form-control-lg {
   word-wrap: break-word !important;
   word-break: break-word !important;
 }
+#JavaCodes{
+  min-height: 200px;
+}
 .codeData{
   position: relative;
   height: auto;
 }
 #Loader-Spin{
   position: absolute;
-  top: 0;
+  top: 0px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -8084,26 +8087,52 @@ textarea.form-control-lg {
 }
 .spinner-box{
   width: 100%;
-  height: 150px;
+  height: 300px;
   display: grid;
   place-items: center;
   position: relative;
 }
-.spin{
+.spin1{
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  border: 5px solid var(--bs-link-color);
+  border-top: 5px solid transparent;
+  animation: loader1 .8s linear infinite;
+}
+.spin2{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  border: 5px solid red;
+  border-top: 5px solid transparent;
+  animation: loader2 .8s linear infinite;
+}
+.spin3{
   position: absolute;
   height: 80px;
   width: 80px;
   border-radius: 100%;
-  border: 7px solid var(--bs-link-color);
-  border-top: 7px solid transparent;
-  animation: loader .8s linear infinite;
+  border: 5px solid var(--bs-link-color);
+  border-top: 5px solid transparent;
+  animation: loader1 .8s linear infinite;
 }
-@keyframes loader {
+@keyframes loader1 {
   0%{
     transform: rotate(0deg);
   }
   100%{
     transform: rotate(360deg);
+  }
+}
+@keyframes loader2 {
+  0%{
+    transform: rotate(360deg);
+  }
+  100%{
+    transform: rotate(0deg);
   }
 }
 
