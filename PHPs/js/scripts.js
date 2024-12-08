@@ -2,11 +2,14 @@ var MainOption='';
 
 function GetData(Dir,Search) {
     DetailsContainer = document.getElementById("JavaCodes");
+    Spinner = document.getElementById("Loader-Spin");
+    Spinner.style.display='flex';
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "FilesDetails.php?Dir=" + Dir+"&Search="+Search, true);
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             DetailsContainer.innerHTML = xhr.responseText;
+            Spinner.style.display='none';
         } else {
             console.error("Error:", xhr.statusText);
         }

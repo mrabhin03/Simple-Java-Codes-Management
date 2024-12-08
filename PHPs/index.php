@@ -72,18 +72,20 @@
             </div>
         </header>
 
-        <section class="" style='flex-grow:1;' >
-            <div class="container px-4 px-lg-5 mt-5"  id='JavaCodes'>
+        <section class="codeData" style='flex-grow:1;' >
+            <div id='Loader-Spin'>
+                <div class='spinner-box'>
+                    <div class='spin'></div>
+                </div>
+            </div>
+            <div class="container px-4 px-lg-5 mt-5" style='position: relative;'  id='JavaCodes'>
                 
             </div>
         </section>
-        <!-- Footer-->
         <footer class="py-5 bg-dark" style='margin-top:20px'>
             <div class="container"><p class="m-0 text-center text-white">This Website is a Prototype <br> <b>'Java Code Reviewer'</b> <a target='_blank' href="https://github.com/mrabhin03">By Abhin M</a></p></div>
         </footer>
-        <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
         <script src="js/scripts.js?v=<?php echo time()?>"></script>
     </body>
 </html>
