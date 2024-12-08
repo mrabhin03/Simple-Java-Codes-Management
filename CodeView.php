@@ -58,15 +58,14 @@
             user-select: none;
             border-radius:20px !important;
             color:#ddd;
-            padding: 0px;
+            padding: 10px;
             margin: 0px;
-            height:75vh;
+            height:74vh;
             transition: border-color 0.3s ease;
             display: block;
             margin: 0px 0;
             width: 98%;
             cursor: pointer;
-
         }
         textarea:focus {
             border-color: #3498db;
@@ -101,8 +100,9 @@
           color:white;
         }
         #inputBox{
-           height: fit-content;
+           height: 100%;
            font-size: 15px;
+           overflow: auto;
         }
         @media (max-width:550px) {
           #inputBox{
@@ -117,7 +117,7 @@
         }
     </style>
 </head>
-<body>
+<body id='MainBody'>
     <h1><?php echo $fileName;?></h1>
     <form  method="post">
         <div id="header-details">
@@ -146,6 +146,19 @@
           const inputBox = document.getElementById("inputBox").innerHTML=code[0];
         }
         getCodes();
+        const parent = document.getElementById('MainBody');
+        const child = document.querySelectorAll('.language-javascript')[0];
+
+        parent.addEventListener(
+          'wheel',
+          (event) => {
+            child.scrollTop += event.deltaY; 
+            event.preventDefault(); 
+          },
+          { passive: false }
+        );
+
+
     </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
