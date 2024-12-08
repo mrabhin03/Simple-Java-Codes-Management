@@ -37,8 +37,12 @@ function selectOption(object,Path){
     }
     MainOption=Path;
     document.getElementById('SearchDataInput').value='';
+    document.getElementById('navbarSupportedContent').classList.remove("show")
     GetData(MainOption,'')
-    document.getElementById('JavaCodes').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(()=>{
+        document.querySelector('.codeData').scrollIntoView({ behavior: 'smooth' });
+    },10)
+    
 }
 
 function ResetValue(){
