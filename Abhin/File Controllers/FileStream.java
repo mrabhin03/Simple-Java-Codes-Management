@@ -6,7 +6,7 @@ public class FileStream {
                 file.write(65);
                 file.close();
         }catch(Exception e){
-            System.out.println("Error");
+            System.out.println("Error in File");
         }
     }
 }
