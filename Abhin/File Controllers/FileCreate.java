@@ -4,7 +4,7 @@ import java.io.IOException;
 class FileCreate{
     public static void main(String ar[]){
         try{
-            File obj=new File("Files/Test1");
+            File obj=new File("Files/Test2");
             if(obj.createNewFile()){
                 System.out.print("File Created: "+obj.getName());
             }else{

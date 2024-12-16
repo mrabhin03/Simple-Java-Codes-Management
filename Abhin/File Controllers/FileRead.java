@@ -8,6 +8,7 @@ class FileRead{
             while(read.hasNextLine()){
                 System.out.println(read.nextLine());
             }
+            read.close();
         }catch(Exception e){
             
         }
