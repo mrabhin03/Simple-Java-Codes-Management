@@ -2,7 +2,6 @@ var MainOption='';
 
 function GetData(Dir,Search) {
     DetailsContainer = document.getElementById("JavaCodes");
-    DetailsContainer.innerHTML='';
     Spinner = document.getElementById("Loader-Spin");
     Spinner.style.display='flex';
     var xhr = new XMLHttpRequest();
