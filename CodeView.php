@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java Code</title>
+    <title>Code</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
@@ -141,9 +141,10 @@
 
 
         code=[];
-        code.push(`<?php echo $fileContent;?>`);
+        code.push(<?php echo json_encode($fileContent); ?>);
+
         function getCodes(){
-          const inputBox = document.getElementById("inputBox").innerHTML=code[0];
+          const inputBox = document.getElementById("inputBox").textContent =`${code[0]}`;
         }
         getCodes();
         const parent = document.getElementById('MainBody');

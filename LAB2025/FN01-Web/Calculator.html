@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body,html{
+            height: 100%;
+            width: 100%;
+            display: grid;
+            place-items: center;
+        }
+        .calculator{
+            padding: 5px;
+            border-radius: 10px;
+            display: grid;
+            background-color: rgb(0, 0, 0);
+            grid-template-columns: repeat(4,1fr);
+            height: fit-content;
+            gap: 1px;
+        }
+        input{
+            height: 70px;
+            grid-column:span 4;
+            margin: 0;
+        }
+        button{
+            font-size: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text"  id="out" readonly>
+        <button onclick="sendNumber('7')">7</button>
+        <button onclick="sendNumber('8')">8</button>
+        <button onclick="sendNumber('9')">9</button>
+        <button onclick="sendNumber('-')">-</button>
+
+        <button onclick="sendNumber('4')">4</button>
+        <button onclick="sendNumber('5')">5</button>
+        <button onclick="sendNumber('6')">6</button>
+        <button onclick="sendNumber('+')">+</button>
+
+        <button onclick="sendNumber('1')">1</button>
+        <button onclick="sendNumber('2')">2</button>
+        <button onclick="sendNumber('3')">3</button>
+        <button onclick="sendNumber('x')">x</button>
+        
+        <button onclick="clearData()">C</button>
+        <button onclick="sendNumber('0')">0</button>
+        <button onclick="sendNumber('/')">/</button>
+        <button onclick="Calculate()">=</button>
+    </div>
+    <script>
+        OutBox=document.getElementById("out");
+        function sendNumber(num){
+            OutBox.value+=num;
+            
+        }
+        function clearData(){
+            OutBox.value="";
+        }
+        function Calculate(){
+            ValesD=OutBox.value.replace('x','*')
+            OutBox.value=eval(ValesD)
+        }
+    </script>
+</body>
+</html>
