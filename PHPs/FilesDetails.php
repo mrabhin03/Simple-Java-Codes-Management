@@ -52,7 +52,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
                 $relativePath = str_replace('../','',$itemPath);
                 $relativePath=str_replace('\\','/',$relativePath);
                 $MainTemp=explode('/',$relativePath);
-                if($MainTemp[0]==".."){
+                if($MainTemp[count($MainTemp)-2]=="" || $MainTemp[count($MainTemp)-2]==".."){
                     continue;
                 }
                 $AllFiles[]=[
