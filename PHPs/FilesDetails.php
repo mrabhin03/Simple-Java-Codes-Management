@@ -13,7 +13,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
                 $itemPath = $directory . DIRECTORY_SEPARATOR . $item;
                 if (is_dir($itemPath)) {
                     $javaFiles = array_merge($javaFiles, getJavaFiles($itemPath, $rootDir,$Search));
-                } elseif (is_file($itemPath) && (pathinfo($itemPath, PATHINFO_EXTENSION) === 'java' || pathinfo($itemPath, PATHINFO_EXTENSION) === 'html') && stripos(basename($itemPath), $Search) === 0)
+                } elseif (is_file($itemPath) && pathinfo($itemPath, PATHINFO_EXTENSION) === 'java' && stripos(basename($itemPath), $Search) === 0)
                 {
                     $relativePath = str_replace('../','',$itemPath);
                     $relativePath = str_replace('\\','/',$relativePath);
@@ -31,6 +31,8 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
 
     return $javaFiles;
 }
+?>
+    <?php
     if(!isset($_GET['Dir'])){
         $Dir='';
     }else{
@@ -48,13 +50,10 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
         foreach ($items as $item) {
             $javaFiles=[];
             $itemPath = $folderPath . DIRECTORY_SEPARATOR . $item;
-            if (is_file($itemPath) && (pathinfo($itemPath, PATHINFO_EXTENSION) === 'java' || pathinfo($itemPath, PATHINFO_EXTENSION) === 'html') && stripos(basename($itemPath), $Search) === 0) {
+            if (is_file($itemPath) && pathinfo($itemPath, PATHINFO_EXTENSION) === 'java' && stripos(basename($itemPath), $Search) === 0) {
                 $relativePath = str_replace('../','',$itemPath);
                 $relativePath=str_replace('\\','/',$relativePath);
                 $MainTemp=explode('/',$relativePath);
-                if($MainTemp[count($MainTemp)-2]=="" || $MainTemp[count($MainTemp)-2]==".."){
-                    continue;
-                }
                 $AllFiles[]=[
                     'FileName'=>$item,
                     'Type'=>$MainTemp[count($MainTemp)-2],
@@ -96,7 +95,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
         });
         foreach ($AllFiles as $file) {
             if ($file['FileName'] !== '.' && $file['FileName'] !== '..') {
-                if ((pathinfo($file['FileName'], PATHINFO_EXTENSION) === 'java')|| (pathinfo($itemPath, PATHINFO_EXTENSION) === 'html')) {
+                if (pathinfo($file['FileName'], PATHINFO_EXTENSION) === 'java') {
                     $FilePath= base64_encode($file['Path']);
                     $timestamp = strtotime($file['DateTime']);
                     $today = date('Y-m-d');
